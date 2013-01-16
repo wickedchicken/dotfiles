@@ -1,0 +1,2 @@
+[alias]
+    fixup = "commit -a --amend -C HEAD"
