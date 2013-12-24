@@ -16,7 +16,7 @@ filetype plugin on
 set textwidth=80
 
 augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey ctermfg=darkred guibg=#592929
   autocmd BufEnter * match OverLength /\%81v.\+/
 augroup END
 
