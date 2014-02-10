@@ -1,25 +1,40 @@
 set nocompatible
+
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'majutsushi/tagbar'
+Bundle 'Valloric/YouCompleteMe'
+
 syntax on
 set shiftwidth=2
+
+" Tabs are for nerds.
 set expandtab
 set tabstop=2
 set ai
 set smartindent
+" You'll need to mkdir ~/.backup and ~/.undo for these to work.
 set backupdir=~/.backup//
 set dir=~/.backup//
-filetype on
-filetype indent on
-filetype plugin on
+" Not supported by older Vims.
+set undofile
+set undodir=~/.undo//
+filetype plugin indent on      " required!
 " set foldmethod=syntax
 " color desert
 
+" Black out characters that are more than 80 cols.
 set textwidth=80
-
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=darkgrey ctermfg=darkred guibg=#592929
   autocmd BufEnter * match OverLength /\%81v.\+/
 augroup END
 
+" Disable arrow keys.
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
@@ -29,12 +44,14 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+" UTF-8 or death.
 set encoding=utf-8
 set scrolloff=3
 set autoindent
 set showmode
 set showcmd
 set hidden
+" Real tab completion for files.
 set wildmenu
 set wildmode=list:longest
 set cursorline
@@ -43,15 +60,15 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
-set undofile
-set undodir=~/.undo//
-
+" Set some search options: read up on smartcase and gdefault.
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
 set showmatch
 set hlsearch
+
+" Use \<space> to turn off highlighting when you've searched.
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
